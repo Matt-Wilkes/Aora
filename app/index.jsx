@@ -10,7 +10,11 @@ export default function App() {
     // Ensures contact doesn't overlap based on device
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-      {/* min height of screen 85vh */}
+      {/* w-full: Sets the width of the View to 100% of its parent container.
+      min-h-[85vh]: min height of the View to 85% of the viewport height
+      justify-center: Centers child components vertically within the View
+      items-center: Centers child components horizontally within the View.
+      px-4: Adds horizontal padding of 16 pixels  */}
         <View className="w-full justify-center items-center min-h-[85vh] px-4">
           <Image
             source={images.logo}
