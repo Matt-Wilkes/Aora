@@ -9,7 +9,6 @@ import { CreateUser } from '../../lib/appwrite';
 
 
 
-
 const SignUp = () => {
   const [form, setForm] = useState({
     username: '',
@@ -29,8 +28,6 @@ const SignUp = () => {
 
     try {
       const result = await CreateUser(form.email, form.password, form.username);
-
-      //set it to global state...
 
       router.replace('/home')
     } catch (error) {
