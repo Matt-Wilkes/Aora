@@ -5,8 +5,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
 import CustomButton from "../components/CustomButton";
 import 'react-native-url-polyfill/auto'
+import { useGlobalContext } from "../context/GlobalProvider";
+
 
 export default function App() {
+  // get logged in and loading state from global context provider 
+  const {isLoading, isLoggedIn, user} = useGlobalContext();
+
+  // if not loading and are logged in, redirect to /home
+  if(!isLoading && isLoggedIn) return <Redirect href="/home" />
+  
   return (
     // Ensures contact doesn't overlap based on device
     <SafeAreaView className="bg-primary h-full">
