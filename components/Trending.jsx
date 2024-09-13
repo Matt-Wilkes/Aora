@@ -24,12 +24,12 @@ const zoomOut = {
 const TrendingItem = ({ activeItem, item}) => {
   const [play, setPlay] = useState(false);
 
-  console.log(activeItem.$id, item.$id)
+  // console.log(activeItem, item.$id)
 
   return (
     <Animatable.View
     className="mr-5"
-    animation={activeItem.$id === item.$id ? zoomIn : zoomOut}
+    animation={activeItem === item.$id ? zoomIn : zoomOut}
     duration={500}
     >
     {play ? (
@@ -61,17 +61,29 @@ const Trending = ({posts}) => {
   const [activeItem, setActiveItem] = useState(posts[1]);
   // console.log(`posts object: ${posts[1]}`)
   // console.log(`posts 1 id: ${posts[1].$id}`)
-  
+  const viewableItemsChanged = ({ viewableItems }) => {
+    console.log(`viewable items: ${viewableItems[0]}`)
+    if (viewableItems.length > 0) {
+      // set ActiveItem as the key
+      setActiveItem(viewableItems[0].key)
+    }
+
+  }
 
   return (
     <FlatList
     data={posts}
-    keyExtractor={(item) => {item.$id}}
+    keyExtractor={(item) => item.$id}
     renderItem={({item}) => (
       // get active item from state
        <TrendingItem activeItem={activeItem} item={item}/>
     )}
-
+    // Called when the viewability of rows changes, as defined by the viewablePercentThreshold prop.
+    onViewableItemsChanged={viewableItemsChanged}
+    viewabilityConfig={{
+      itemVisiblePercentThreshold: 70
+    }}
+    contentOffset={{ x: 170 }}
     // renders the list horizontally
     horizontal
     >
