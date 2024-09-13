@@ -25,7 +25,7 @@ const GlobalProvider = ({children}) => {
             }
         })
         .catch((error) => {
-            console.log(`error: ${error}`);
+            // console.log(`error: ${error}`);
         })
         .finally(() => {
             // loading is complete regardless of outcome
