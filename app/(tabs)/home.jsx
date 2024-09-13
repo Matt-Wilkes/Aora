@@ -6,53 +6,37 @@ import SearchInput from '../../components/SearchInput'
 import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
 import { getAllPosts } from '../../lib/appwrite'
+import useAppwrite from '../../lib/useAppwrite'
+import VideoCard from '../../components/VideoCard'
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    // we do this because you can't use async code directly within a useEffect
-    // a new function has to be created and called within
-    const fetchData = async () => {
-      setIsLoading(true);
-
-      try {
-        const response = await getAllPosts();
-        setData(response);
-      } catch (error) {
-        Alert.alert('Error'. error.message)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    fetchData()
-  }, []);
-
-  console.log(data)
+  // calling custom appwrite hook with function to get all posts
+  const { data: posts, refetch } = useAppwrite(getAllPosts);
   const [refreshing, setRefreshing] = useState(false)
 
   const onRefresh = async () => {
     setRefreshing(true);
-
-    // re call videos -> see if any new videos appeared
+    // fetch the posts again
+    await refetch();
 
     setRefreshing(false)
   }
+
+  console.log(posts)
 
   return (
     <SafeAreaView className="bg-primary h-full">
     {/* used to render a list of elements */}
       <FlatList
       // needs data, keyExtractor, renderItem
-        data={[{id: 1}, {id: 2}, {id: 3}]}
+        data={posts}
         // data={[]}
         // get each item and then get the id from it
         keyExtractor={(item) => item.$id}
         // tell RN how we want to render each item, destructure the data from each item
         renderItem={({item}) => (
           // immediate return
-          <Text className="text-3xl text-white">{item.id}</Text>
+          <VideoCard video={item}/>
         )}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6">
