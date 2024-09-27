@@ -1,11 +1,11 @@
-import { View, Image, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Image, Text, TextInput, TouchableOpacity, Alert } from 'react-native'
 import {React, useState } from 'react'
 import { icons } from "../constants"
 import { usePathname, router } from 'expo-router'
 
-const SearchInput = () => {
+const SearchInput = ({initialQuery}) => {
     const pathname = usePathname();
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState(initialQuery || '');
     
   return (
       <View className="border-2 border-black-200 w-full h-16 px-4 bg-black-100 rounded-2xl focus:border-secondary flex-row items-center space-x-4">
