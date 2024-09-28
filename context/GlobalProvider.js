@@ -16,7 +16,6 @@ const GlobalProvider = ({children}) => {
         getCurrentUser()
         .then((res) => {
             if (res) {
-                // console.log(`res = ${res}`)
                 setIsLoggedIn(true);
                 setUser(res)
             } else {
@@ -25,7 +24,6 @@ const GlobalProvider = ({children}) => {
             }
         })
         .catch((error) => {
-            // console.log(`error: ${error}`);
         })
         .finally(() => {
             // loading is complete regardless of outcome
