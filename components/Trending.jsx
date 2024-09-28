@@ -25,8 +25,6 @@ const zoomOut = {
 const TrendingItem = ({ activeItem, item}) => {
   const [play, setPlay] = useState(false);
 
-  // console.log(activeItem, item.$id, item.video)
-
   return (
     <Animatable.View
     className="mr-5"
@@ -76,7 +74,6 @@ const Trending = ({posts}) => {
   const [activeItem, setActiveItem] = useState(posts[1]);
 
   const viewableItemsChanged = ({ viewableItems }) => {
-    // console.log(`viewable items: ${viewableItems[0]}`)
     if (viewableItems.length > 0) {
       // set ActiveItem as the key
       setActiveItem(viewableItems[0].key)
