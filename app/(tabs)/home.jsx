@@ -21,7 +21,7 @@ const Home = () => {
     setRefreshing(true);
     // fetch the posts again
     await refetch();
-
+    
     setRefreshing(false)
   }
 
@@ -69,7 +69,7 @@ const Home = () => {
           />
         )}
         // fetch new videos
-        RefreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
       />
     </SafeAreaView>
   )
