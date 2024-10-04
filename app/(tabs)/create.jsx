@@ -32,7 +32,6 @@ const Create = () => {
       return Alert.alert("Please fill in all of the fields");
     }
     setUploading(true);
-    // console.log('FORM AT SUBMIT', form)
 
     try {
       await createVideo({...form, userId: user.$id
