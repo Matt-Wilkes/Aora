@@ -21,7 +21,7 @@ const Home = () => {
     setRefreshing(true);
     // fetch the posts again
     await refetch();
-    
+    // console.log(posts)r
     setRefreshing(false)
   }
 
