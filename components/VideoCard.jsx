@@ -18,7 +18,6 @@ const VideoCard = ({
   },
 }) => {
   const [liked, setLiked] = useState(null);
-  // const [likesArray, setLikesArray] = useState(likes?.map(({ $id }) => $id) || []);
   const [likesArray, setLikesArray] = useState(likes || []);
   const [play, setPlay] = useState(false);
   const { user } = useGlobalContext();
