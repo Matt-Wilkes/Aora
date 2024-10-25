@@ -8,7 +8,7 @@
   <h3 align="center">Video Sharing App</h3>
 
    <div align="center">
-     This tutorial used to build this project can be found here: <a href="https://www.youtube.com/watch?v=ZBCUegTZF7M" target="_blank"><b>JavaScript Mastery</b></a> YouTube. 
+     The tutorial used to build this project can be found here: <a href="https://www.youtube.com/watch?v=ZBCUegTZF7M" target="_blank"><b>JavaScript Mastery</b></a> YouTube. 
     </div>
 </div>
 
