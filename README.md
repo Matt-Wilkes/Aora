@@ -53,6 +53,8 @@ This is a video sharing app Built with React Native + Expo, integrated with an A
 
 👉 **Profile Screen with Detailed Insights**: View account details and activity, including uploaded videos. [follower count TBC!]
 
+👉 **Bookmark Screen with filter**: Like videos and view them on the bookmarks page, filter the view based on text search.
+
 👉 **Responsiveness**: Smooth performance and adaptability across various devices and screen sizes for a consistent user experience.
 
 👉 **Animations**: Dynamic animations using the Animatable library to enhance user interaction and engagement throughout the app's UI.
